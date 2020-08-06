@@ -88,11 +88,11 @@ class MyController extends Controller{
                         }
     
                     }
-                     $data['ok'] = 0;
-                    return $this->view->load('/',$data); 
+                     $data['ok'] = 1;
+                    return $this->view->load("myview/index", $data); 
                 }
-                $data['ok'] = 1;
-                return $this->view->load('/',$data);
+                $data['ok'] = 0;
+                return $this->view->load("myview/index", $data); 
         
             }else if($_POST['check1']=='Entreprise'){
                 
@@ -128,10 +128,10 @@ class MyController extends Controller{
                         $resultatc = $c->addCompte($cc);
                    // }
                 }
-                $data['ok'] = 0;
-                return $this->view->load('/',$data);
-            }$data['ok'] = 1;
-            return $this->view->load('/',$data);
+                $data['ok'] = 1;
+                return $this->view->load("myview/index", $data); 
+            }$data['ok'] = 0;
+            return $this->view->load("myview/index", $data); 
         
         }
 
