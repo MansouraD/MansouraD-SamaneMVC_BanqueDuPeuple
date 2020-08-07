@@ -1,5 +1,6 @@
 <?php
-use Doctrine\ORM\Annotation as ORM;
+
+use Doctrine\ORM\Mapping AS ORM; 
 
 
 /**
@@ -9,81 +10,91 @@ use Doctrine\ORM\Annotation as ORM;
 class ClientEntreprise {
 
 
-    /** 
-    * @Id
-    * @Column(type="integer")
-    * @GeneratedValue
-    */
-   private $id;
-   /** @Column (type="string") */
-   private $statut;
-   /** @Column (type="string") */
-   private $denomination;
-   /** @Column (type="string") */
-   private $ninea; 
-   /** @Column (type="string") */
-   private $adresse; 
-   /** @Column (type="string") */
-   private $telephone;
-   /** @Column (type="string") */
-   private $mail; 
-   
-   function __construct(){
+     /** 
+     * @Id
+     * @Column(type="integer")
+     * @GeneratedValue
+     */
+    private $id;
+    /** @Column (type="string") */
+    private $statut;
+    /** @Column (type="string") */
+    private $denomination;
+    /** @Column(type="string")  */
+    private $ninea; 
+    /** @Column (type="string") */
+    private $adresse; 
+    /** @Column (type="string") */
+    private $telephone;
+    /** @Column (type="string") */
+    private $mail; 
+    /** @OneToMany(targetEntity="Compte", mappedBy="id_client")*/
+    private $comptes;
 
-   }
-   function getId(){
-       return $this->id;
-   }
+    
+    function __construct(){
 
-   function getStatut(){
-       return $this->statut;
-   }
-   function setStatut($statut){
-       $this->statut =$statut;
-       return $this;
-   }
+    }
+    function getId(){
+        return $this->id;
+    }
 
-   function getDenomination(){
-       return $this->denomination;
-   }
-   function setDenomination($denomination){
-       $this->denomination =$denomination;
-       return $this;
-   }
+    function getStatut(){
+        return $this->statut;
+    }
+    function setStatut($statut){
+        $this->statut =$statut;
+        return $this;
+    }
 
-   function getNinea(){
-       return $this->ninea;
-   }
-   function setNinea($ninea){
-       $this->ninea =$ninea;
-       return $this;
-   }
+    function getDenomination(){
+        return $this->denomination;
+    }
+    function setDenomination($denomination){
+        $this->denomination =$denomination;
+        return $this;
+    }
 
+    function getNinea(){
+        return $this->ninea;
+    }
+    function setNinea($ninea){
+        $this->ninea =$ninea;
+        return $this;
+    }
 
-   function getAdresse(){
-       return $this->adresse;
-   }
-   function setAdresse($adresse){
-       $this->adresse =$adresse;
-       return $this;
-   }
+    function getAdresse(){
+        return $this->adresse;
+    }
+    function setAdresse($adresse){
+        $this->adresse =$adresse;
+        return $this;
+    }
 
-   function getTelephone(){
-       return $this->telephone;
-   }
-   function setTelephone($telephone){
-       $this->telephone =$telephone;
-       return $this;
-   }
+    function getTelephone(){
+        return $this->telephone;
+    }
+    function setTelephone($telephone){
+        $this->telephone =$telephone;
+        return $this;
+    }
 
+    function getMail(){
+        return $this->mail;
+    }
+    function setMail($mail){
+        $this->mail =$mail;
+        return $this;
+    }
 
-   function getMail(){
-       return $this->mail;
-   }
-   function setMail($mail){
-       $this->mail =$mail;
-       return $this;
-   }
+    function getComptes(){
+        return $this->comptes;
+    }
+    function setComptes($comptes){
+        $this->comptes =$comptes;
+        return $this;
+    }
+
 
 }
 
